@@ -12,6 +12,9 @@ missing_docs = "deny"
 unsafe_code = "deny"
 unused_results = "deny"
 
+[lints.clippy]
+type-complexity = "allow"
+
 [dependencies]
 serde_json = "1"
 

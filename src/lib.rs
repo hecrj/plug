@@ -1,5 +1,6 @@
 //! A library for type-safe interprocess communication.
 //!
+//! # Usage
 //! Define the input and output of a wired connection:
 //!
 //! ```
