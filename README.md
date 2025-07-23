@@ -33,19 +33,6 @@ pub enum Authentication {
 Create a [`Plug`] for this specific action:
 
 ```rust
-# use serde::{Deserialize, Serialize};
-#
-# #[derive(Serialize, Deserialize)]
-# pub struct Credentials {
-#     username: String,
-#     password: String,
-# }
-#
-# #[derive(Serialize, Deserialize)]
-# pub enum Authentication {
-#     Success { token: String },
-#     Error { description: String },
-# }
 use plug::Plug;
 
 pub const LOG_IN: Plug<Credentials, Authentication> = Plug::new("log_in");
@@ -54,23 +41,6 @@ pub const LOG_IN: Plug<Credentials, Authentication> = Plug::new("log_in");
 Connect the [`Plug`] to the server leveraging type-safety:
 
 ```rust
-# use serde::{Deserialize, Serialize};
-#
-# #[derive(Serialize, Deserialize)]
-# pub struct Credentials {
-#     username: String,
-#     password: String,
-# }
-#
-# #[derive(Serialize, Deserialize)]
-# pub enum Authentication {
-#     Success { token: String },
-#     Error { description: String },
-# }
-# use plug::Plug;
-#
-# pub const LOG_IN: Plug<Credentials, Authentication> = Plug::new("log_in");
-#
 use std::io;
 
 async fn log_in(credentials: Credentials) -> io::Result<Authentication> {
@@ -83,23 +53,6 @@ async fn log_in(credentials: Credentials) -> io::Result<Authentication> {
 Implement the server by gathering all the [`Plug`] definitions in a [`Strip`]:
 
 ```rust
-# use serde::{Deserialize, Serialize};
-#
-# #[derive(Serialize, Deserialize)]
-# pub struct Credentials {
-#     username: String,
-#     password: String,
-# }
-#
-# #[derive(Serialize, Deserialize)]
-# pub enum Authentication {
-#     Success { token: String },
-#     Error { description: String },
-# }
-# use plug::Plug;
-#
-# pub const LOG_IN: Plug<Credentials, Authentication> = Plug::new("log_in");
-#
 use plug::{Connection, Strip};
 
 use std::io;
