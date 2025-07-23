@@ -14,7 +14,7 @@ A library for type-safe interprocess communication in Rust
 ## Usage
 Define the input and output of a wired connection:
 
-```
+```rust
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -32,7 +32,7 @@ pub enum Authentication {
 
 Create a [`Plug`] for this specific action:
 
-```
+```rust
 # use serde::{Deserialize, Serialize};
 #
 # #[derive(Serialize, Deserialize)]
@@ -53,7 +53,7 @@ pub const LOG_IN: Plug<Credentials, Authentication> = Plug::new("log_in");
 
 Connect the [`Plug`] to the server leveraging type-safety:
 
-```
+```rust
 # use serde::{Deserialize, Serialize};
 #
 # #[derive(Serialize, Deserialize)]
@@ -82,7 +82,7 @@ async fn log_in(credentials: Credentials) -> io::Result<Authentication> {
 
 Implement the server by gathering all the [`Plug`] definitions in a [`Strip`]:
 
-```
+```rust
 # use serde::{Deserialize, Serialize};
 #
 # #[derive(Serialize, Deserialize)]
