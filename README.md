@@ -128,3 +128,6 @@ async fn log_in(mut connection: Connection<Authentication, Credentials>) -> io::
     connection.write(result).await
 }
 ```
+
+[`Plug`]: https://docs.rs/plug/latest/struct.Plug.html
+[`Strip`]: https://docs.rs/plug/latest/struct.Strip.html
