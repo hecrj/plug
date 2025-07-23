@@ -71,8 +71,6 @@ async fn run_server() -> io::Result<()> {
 
         let _ = strip.attach(client).await;
     }
-
-    Ok(())
 }
 
 async fn log_in(mut connection: Connection<Authentication, Credentials>) -> io::Result<()> {
