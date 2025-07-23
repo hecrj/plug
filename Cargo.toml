@@ -2,8 +2,12 @@
 name = "plug"
 version = "0.1.0-dev"
 edition = "2024"
-description = "A library for type-safe interprocess communication"
+authors = ["Héctor Ramón Jiménez <hector@hecrj.dev>"]
 license = "MIT"
+repository = "https://github.com/hecrj/plug"
+description = "A library for type-safe interprocess communication"
+categories = ["network-programming", "asynchronous"]
+keywords = ["interprocess", "communication", "type-safe"]
 
 [lints.rust]
 rust_2018_idioms = { level = "deny", priority = -1 }
