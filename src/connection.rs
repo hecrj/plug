@@ -69,6 +69,11 @@ impl<I, O> Connection<I, O> {
     pub async fn copy<T>(&mut self, to: &mut Connection<T, O>) -> io::Result<u64> {
         io::copy(&mut self.stream, &mut to.stream).await
     }
+
+    /// Connects this [`Connection`] with another, copying in both directions.
+    pub async fn connect<T>(&mut self, with: &mut Connection<T, O>) -> io::Result<(u64, u64)> {
+        io::copy_bidirectional(&mut self.stream, &mut with.stream).await
+    }
 }
 
 impl<I, O> fmt::Debug for Connection<I, O> {
